@@ -3,6 +3,10 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 public class FlagGame {
+    private static long startTime;
+    private static long timeElapsed;
+    private static List<String> flagNames = new ArrayList<String>();
+    private static List<String> selection = new ArrayList<String>();
 
     public static void main(String[] args) throws Exception {
         countryGame();
@@ -11,34 +15,33 @@ public class FlagGame {
     public static void countryGame(){
         int tries = 1;
         int score = 0;
-        List<String> flagNames = new ArrayList<String>();
-        List<String> selection = new ArrayList<String>();
-        List<String> answer = new ArrayList<String>();
+        int answer = 0;
 
         try{
+            startTime = System.currentTimeMillis() / 1000; // Start Timer
             do{
                 fillCountryList(flagNames);
                 Collections.shuffle(flagNames);
                 do{
                     selection = flagNames.subList(0, 4);
-                    // For Testing Purposes
-                    // System.out.println("\n\nOriginal Arraylist of Countries\n" + flagNames + " Current Size = " + flagNames.size());
-                    // System.out.println("\n\nContents of the 4 Country Selection Arraylist\n" + selection + " Size of List " + selection.size());
+                    // Uncomment for Testing
+                        // testPrint(flagNames, selection);
+                    // End of testing
                     JOptionPane.showMessageDialog(null, selection);
                     answerMethod(selection, answer);
-                    score = userGuess(selection, tries, score);
+                    score = userGuess(selection, tries, score, answer);
                     selection.clear(); // Required
                 }while(!flagNames.isEmpty());
             }while(tries != 0);
-
+            
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
-    public static int userGuess(List<String> selection, int tries, int score){
+    public static int userGuess(List<String> selection, int tries, int score, int answer){
         String guess;
-        
+
         try{
             guess = JOptionPane.showInputDialog(null, "Please enter you Guess");
             if(guess.equals("")){
@@ -46,7 +49,7 @@ public class FlagGame {
                 tries = 1;
             }else{
                 for(int i=0; i < selection.size(); i++){
-                    if(guess.equals(selection.get(i))){
+                    if(selection.contains(guess)){
                         JOptionPane.showMessageDialog(null, "Correct");
                         score = scoreMethod(score);
                         break;
@@ -54,7 +57,8 @@ public class FlagGame {
                         JOptionPane.showMessageDialog(null, "Incorrect");
                         tries--;
                         if(tries == 0){
-                            JOptionPane.showMessageDialog(null, "Game Over\n You Scored " + score);
+                            timeElapsed = System.currentTimeMillis()/1000 - startTime; // End timer
+                            JOptionPane.showMessageDialog(null, "Game Over\n You Scored " + score + "\nIn a time of " + timeElapsed + " seconds");
                             System.exit(0);
                         }
                         return tries;
@@ -67,15 +71,21 @@ public class FlagGame {
         return score;
     }
 
-    public static void answerMethod(List<String> selection, List<String> answer){
-        Collections.shuffle(selection);
-        JOptionPane.showMessageDialog(null, "Which Flag was " + selection.get(0) + "?");
-        // answer = selection.subList(0, 1);
-        answer = selection;
+    public static void answerMethod(List<String> selection, int answer){
+        Random rnd = new Random();
+        int index = rnd.nextInt(selection.size());
+        String str = selection.get(index);
+        int result = selection.indexOf(str) + 1;
+        JOptionPane.showMessageDialog(null, "Which Country was Number " + result + "?");
     }
 
     public static int scoreMethod(int score){
         return score += 1;
+    }
+
+    public static void testPrint(List<String> flagNames, List<String> selection){
+        System.out.println("\n\nOriginal Arraylist of Countries\n" + flagNames + " Current Size = " + flagNames.size());
+        System.out.println("\n\nContents of the 4 Country Selection Arraylist\n" + selection + " Size of List " + selection.size());
     }
 
     public static void fillCountryList(List<String> flagNames){
