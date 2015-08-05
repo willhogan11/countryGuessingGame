@@ -3,6 +3,7 @@ import java.util.*;
 
 public class CountryNames {
 
+	// European Country Names 
     public void fillEuropeList(List<String> countryNames){
         countryNames.add("Ireland");
         countryNames.add("England");
@@ -59,7 +60,8 @@ public class CountryNames {
         countryNames.add("Vatican City");
     } // End fillEuropeList method
 
-    
+	
+	// African Country Names 
     public void fillAfricaList(List<String> countryNames){
         countryNames.add("Algeria");
         countryNames.add("Angola");
