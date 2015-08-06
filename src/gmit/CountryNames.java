@@ -3,7 +3,6 @@ import java.util.*;
 
 public class CountryNames {
 
-	// European Country Names 
     public void fillEuropeList(List<String> countryNames){
         countryNames.add("Ireland");
         countryNames.add("England");
@@ -60,8 +59,7 @@ public class CountryNames {
         countryNames.add("Vatican City");
     } // End fillEuropeList method
 
-	
-	// African Country Names 
+    
     public void fillAfricaList(List<String> countryNames){
         countryNames.add("Algeria");
         countryNames.add("Angola");
@@ -118,4 +116,58 @@ public class CountryNames {
         countryNames.add("Zambia");
         countryNames.add("Zimbabwe");
     } // End fillAfricaList method
+
+
+    public void fillAsianList(List<String> countryNames){
+        countryNames.add("Afghanistan");
+        countryNames.add("Armenia");
+        countryNames.add("Azerbaijan");
+        countryNames.add("Bahrain");
+        countryNames.add("Bangladesh");
+        countryNames.add("Bhutan");
+        countryNames.add("Brunei");
+        countryNames.add("Cambodia");
+        countryNames.add("China");
+        countryNames.add("Cyprus");
+        countryNames.add("Georgia");
+        countryNames.add("India");
+        countryNames.add("Indonesia");
+        countryNames.add("Iran");
+        countryNames.add("Iraq");
+        countryNames.add("Israel");
+        countryNames.add("Japan");
+        countryNames.add("Jordan");
+        countryNames.add("Kazakhstan");
+        countryNames.add("Kuwait");
+        countryNames.add("Kyrgyzstan");
+        countryNames.add("Laos");
+        countryNames.add("Lebanon");
+        countryNames.add("Malaysia");
+        countryNames.add("Maldives");
+        countryNames.add("Mongolia");
+        countryNames.add("Myanmar ");
+        countryNames.add("Nepal");
+        countryNames.add("North Korea");
+        countryNames.add("Oman");
+        countryNames.add("Pakistan");
+        countryNames.add("Palestine");
+        countryNames.add("Philippines");
+        countryNames.add("Qatar");
+        countryNames.add("Russia");
+        countryNames.add("Saudi Arabia");
+        countryNames.add("Singapore");
+        countryNames.add("South Korea");
+        countryNames.add("Sri Lanka");
+        countryNames.add("Syria");
+        countryNames.add("Taiwan");
+        countryNames.add("Tajikistan");
+        countryNames.add("Thailand");
+        countryNames.add("East Timor");
+        countryNames.add("Turkey");
+        countryNames.add("Turkmenistan");
+        countryNames.add("United Arab Emirates");
+        countryNames.add("Uzbekistan");
+        countryNames.add("Vietnam");
+        countryNames.add("Yemen");
+    } // End fillAsianList method
 }

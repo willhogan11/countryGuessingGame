@@ -18,10 +18,12 @@ public class CountryGuessingGames {
         int score = 0;
         int answer = 0;       
         int options = 0;
+        int difficulty = 0;
         String str = "";
         
         try{
             options = welcomeOptions(options);
+            gameDifficulty(selection, difficulty);
             startTime = System.currentTimeMillis() / 1000; // Start Timer
             do{
                 do{
@@ -35,11 +37,15 @@ public class CountryGuessingGames {
                             names.fillAfricaList(countryNames);
                             break;
                         }
+                        case 3:{
+                            names.fillAsianList(countryNames);
+                            break;
+                        }
                         default:
                             JOptionPane.showMessageDialog(null, "Please Enter a Valid option");
                             break;
                     }
-                }while(options < 1);
+                }while(options < 2);
                 
                 Collections.shuffle(countryNames);
                 do{
@@ -48,7 +54,6 @@ public class CountryGuessingGames {
                         // testPrint(countryNames, selection);
                     // End of testing
                     JOptionPane.showMessageDialog(null, selection);
-                    // answerMethod(selection, answer, str);
                     score = userGuess(selection, tries, score, answer, str);
                     selection.clear(); // Required
                 }while(!countryNames.isEmpty());
@@ -58,6 +63,32 @@ public class CountryGuessingGames {
             e.printStackTrace();
         }
     } // End countryGame method
+
+
+    public static List<String> gameDifficulty(List<String> selection, int difficulty){
+        difficulty = Integer.parseInt(JOptionPane.showInputDialog(null, "Choose a Difficulty\n" +
+                                          "1: Easy\n2:Medium\n3: Hard"));
+        do{
+            switch(difficulty){
+                case 1:{
+                    selection = countryNames.subList(0, 3);
+                    break;
+                }
+                case 2:{
+                    selection = countryNames.subList(0, 4);
+                    break;
+                }
+                case 3:{
+                    selection = countryNames.subList(0, 5);
+                    break;
+                }
+                default:{
+                    JOptionPane.showMessageDialog(null, "Please input a valid option");
+                }
+            }
+        }while(difficulty < 3);
+        return (ArrayList) selection;
+    }
 
 
     public static int userGuess(List<String> selection, int tries, int score, int answer, String str){
@@ -104,9 +135,9 @@ public class CountryGuessingGames {
     } // End scoreMethod
 
     public static int welcomeOptions(int options){
-        JOptionPane.showMessageDialog(null, "WELCOME\nPlease Choose the Correct Country\nfrom each list");
+        JOptionPane.showMessageDialog(null, "WELCOME\nPlease Choose the Correct Country from each list");
         options = Integer.parseInt(JOptionPane.showInputDialog(null, "First, Choose a Continent\n" +
-                                                           "Press 1 for Europe\nPress 2 for Africa"));
+                                                           "Press 1 for Europe\nPress 2 for Africa\nPress 3 for Asia"));
         return options;
     } // End welcomeMessage
 
