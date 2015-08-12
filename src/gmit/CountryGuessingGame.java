@@ -23,7 +23,7 @@ public class CountryGuessingGames {
         
         try{
             options = welcomeOptions(options);
-            gameDifficulty(selection, difficulty);
+            difficulty = difficultyOption(difficulty);
             startTime = System.currentTimeMillis() / 1000; // Start Timer
             do{
                 do{
@@ -45,14 +45,14 @@ public class CountryGuessingGames {
                             JOptionPane.showMessageDialog(null, "Please Enter a Valid option");
                             break;
                     }
-                }while(options < 2);
+                }while(options < 1 || options > 3);
                 
                 Collections.shuffle(countryNames);
                 do{
-                    selection = countryNames.subList(0, 4);
-                    // Uncomment for Testing
-                        // testPrint(countryNames, selection);
-                    // End of testing
+                    selection = gameDifficulty(selection, difficulty);
+                        // UNCOMMENT FOR TESTING
+                            // testPrint(countryNames, selection);
+                        // END OF TESTING
                     JOptionPane.showMessageDialog(null, selection);
                     score = userGuess(selection, tries, score, answer, str);
                     selection.clear(); // Required
@@ -65,9 +65,7 @@ public class CountryGuessingGames {
     } // End countryGame method
 
 
-    public static List<String> gameDifficulty(List<String> selection, int difficulty){
-        difficulty = Integer.parseInt(JOptionPane.showInputDialog(null, "Choose a Difficulty\n" +
-                                          "1: Easy\n2:Medium\n3: Hard"));
+    public static List gameDifficulty(List<String> selection, int difficulty){
         do{
             switch(difficulty){
                 case 1:{
@@ -84,10 +82,17 @@ public class CountryGuessingGames {
                 }
                 default:{
                     JOptionPane.showMessageDialog(null, "Please input a valid option");
+                    break;
                 }
             }
-        }while(difficulty < 3);
-        return (ArrayList) selection;
+        }while(difficulty < 1 || difficulty > 3);
+        return selection;
+    }
+
+    public static int difficultyOption(int difficulty){
+        difficulty = Integer.parseInt(JOptionPane.showInputDialog(null, "Choose a Difficulty\n" +
+                                          "1: Easy\n2:Medium\n3: Hard"));
+        return difficulty;
     }
 
 
