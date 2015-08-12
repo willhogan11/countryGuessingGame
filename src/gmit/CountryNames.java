@@ -170,4 +170,67 @@ public class CountryNames {
         countryNames.add("Vietnam");
         countryNames.add("Yemen");
     } // End fillAsianList method
-}
+
+
+    public void fillAustralasianList(List<String> countryNames){
+        countryNames.add("Australia");
+        countryNames.add("Fiji");
+        countryNames.add("Kiribati");
+        countryNames.add("Marshall Islands");
+        countryNames.add("Micronesia");
+        countryNames.add("Nauru");
+        countryNames.add("New Zealand");
+        countryNames.add("Palau");
+        countryNames.add("Papua New Guinea");
+        countryNames.add("Samoa");
+        countryNames.add("Solomon Islands");
+        countryNames.add("Tonga");
+        countryNames.add("Tuvalu");
+        countryNames.add("Vanuatu");
+    } // End fillAustralasianList method
+
+
+    public void fillNorthAmericaList(List<String> countryNames){
+        countryNames.add("Antigua and Barbuda");
+        countryNames.add("Bahamas");
+        countryNames.add("Barbados");
+        countryNames.add("Belize");
+        countryNames.add("Canada");
+        countryNames.add("Costa Rica");
+        countryNames.add("Cuba");
+        countryNames.add("Dominica");
+        countryNames.add("Dominican Republic");
+        countryNames.add("El Salvador");
+        countryNames.add("Greenland");
+        countryNames.add("Grenada");
+        countryNames.add("Guatemala");
+        countryNames.add("Haiti");
+        countryNames.add("Honduras");
+        countryNames.add("Jamaica");
+        countryNames.add("Mexico");
+        countryNames.add("Nicaragua");
+        countryNames.add("Panama");
+        countryNames.add("St Kitts and Nevis");
+        countryNames.add("St Lucia");
+        countryNames.add("St Vin Gren");
+        countryNames.add("Trinidad and Tobago");
+        countryNames.add("USA");
+     } // End fillNorthAmericaList method
+
+
+    public void fillSouthAmericaList(List<String> countryNames){
+        countryNames.add("Argentina");
+        countryNames.add("Bolivia");
+        countryNames.add("Brazil");
+        countryNames.add("Chile");
+        countryNames.add("Colombia");
+        countryNames.add("Ecuador");
+        countryNames.add("Guyana");
+        countryNames.add("Paraguay");
+        countryNames.add("Peru");
+        countryNames.add("Suriname");
+        countryNames.add("Uruguay");
+        countryNames.add("Venezuela");
+    } // End fillSouthAmericaList method
+
+} // End CountryNames class

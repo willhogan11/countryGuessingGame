@@ -31,6 +31,7 @@ public class CountryGuessingGames {
                     score = userGuess(selection, tries, score, answer, str);
                     selection.clear(); // Required
                     if(countryNames.size() < 5){
+                        countryNames.clear();
                         continentOption(countryNames, options);
                         Collections.shuffle(countryNames);
                     }   
@@ -58,12 +59,24 @@ public class CountryGuessingGames {
                     names.fillAsianList(countryNames);
                     break;
                 }
+                case 4:{
+                    names.fillNorthAmericaList(countryNames);
+                    break;
+                }
+                case 5:{
+                    names.fillSouthAmericaList(countryNames);
+                    break;
+                }
+                case 6:{
+                    names.fillAustralasianList(countryNames);
+                    break;
+                }
                 default:{
                     JOptionPane.showMessageDialog(null, "Please Enter a Valid option");
                     break;
                 }
             }
-        }while(options < 1 || options > 3);
+        }while(options < 1 || options > 6);
         return countryNames;
     } // End continentOption method
 
@@ -144,7 +157,8 @@ public class CountryGuessingGames {
     public static int welcomeOptions(int options){
         JOptionPane.showMessageDialog(null, "WELCOME\nPlease Choose the Correct Country from each list");
         options = Integer.parseInt(JOptionPane.showInputDialog(null, "First, Choose a Continent\n" +
-                                                           "Press 1 for Europe\nPress 2 for Africa\nPress 3 for Asia"));
+                                                           "Press 1 for Europe\nPress 2 for Africa\nPress 3 for Asia\n" +
+                                                           "Press 4 for North America\nPress 5 for South America\nPress 6 for Australasia"));
         return options;
     } // End welcomeMessage
 
