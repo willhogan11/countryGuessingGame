@@ -1,6 +1,8 @@
 package gmit;
 import java.util.*;
 
+/* This class contains all the Continent methods and their countries,
+   that will be added to the main feeder arraylist upon input of users selection */
 public class CountryNames {
 
     public void fillEuropeList(List<String> countryNames){
